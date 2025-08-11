@@ -4,16 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Asset & CMMS Comparison — Skunkworks Interactive Catalog</title>
-  <meta name="description" content="Compare Fiix, Infraspeak, UpKeep, eWorkOrders, Ezo, AssetTiger, ManageEngine AssetExplorer, Snipe-IT, and Dynamics 365. Filter by price, usability, setup, integration, language support, and more." />
+  <meta name="description" content="Compare Asset & CMMS platforms: Fiix, Infraspeak, UpKeep, eWorkOrders, Ezo, AssetTiger, ManageEngine AssetExplorer, Snipe-IT, Dynamics 365, IBM Maximo, IFS, HxGN EAM, and more. Filter by price, usability, setup, integration, language support, Gartner listing, and more." />
   <meta name="author" content="Skunkworks (Pty) Ltd" />
   <meta name="copyright" content="© Skunkworks (Pty) Ltd" />
   <meta name="theme-color" content="#0f172a" />
   <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Asset & CMMS Comparison — Skunkworks Interactive Catalog" />
-  <meta property="og:description" content="Explore and compare leading CMMS/Asset tools with filters for price, setup, integration, and more." />
+  <meta property="og:description" content="Explore and compare leading CMMS/EAM tools with filters for price, setup, integration, Portuguese support, and Gartner listing." />
   <meta property="og:site_name" content="SKUNKWORKS (Pty) Ltd" />
   <meta property="og:image" content="/og-image.png" />
   <meta property="og:url" content="https://www.skunkworks.africa/" />
@@ -46,6 +47,7 @@
     .badge { border:1px solid rgb(203 213 225); color:rgb(51 65 85); background: rgb(248 250 252) }
     .badge.green { border-color: rgb(187 247 208); color: rgb(22 101 52); background: rgb(240 253 244) }
     .badge.amber { border-color: rgb(253 230 138); color: rgb(146 64 14); background: rgb(255 251 235) }
+    .badge.slate { border-color: rgb(203 213 225); color: rgb(30 41 59); background: rgb(241 245 249) }
     .badge.red { border-color: rgb(254 202 202); color: rgb(153 27 27); background: rgb(254 242 242) }
     .watermark { position: fixed; right: .75rem; bottom: .75rem; z-index: 60; }
   </style>
@@ -87,13 +89,14 @@
           <button id="darkToggle" class="glow self-start sm:self-auto rounded-full px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold" aria-pressed="false" aria-label="Toggle dark mode">Toggle Dark</button>
         </div>
       </div>
-      <p class="mt-3 max-w-3xl text-white/90 text-sm sm:text-base">Explore and compare Fiix, Infraspeak, UpKeep, eWorkOrders, Ezo, AssetTiger, ManageEngine AssetExplorer, Snipe-IT, and Dynamics 365. Filter by price, usability, setup, integration, Portuguese support, and more.</p>
+      <p class="mt-3 max-w-3xl text-white/90 text-sm sm:text-base">Explore and compare leading EAM/CMMS platforms. Filter by price, usability, setup, integration, Portuguese support, and Gartner listing.</p>
       <div class="mt-4 flex flex-wrap items-center gap-2">
         <span class="chip badge green">Editor’s Picks</span>
-        <span class="chip badge">Mobile-first</span>
-        <span class="chip badge">Predictive Maintenance</span>
-        <span class="chip badge">Open Source</span>
-        <span class="chip badge">Microsoft Stack</span>
+        <span class="chip badge slate">Mobile-first</span>
+        <span class="chip badge slate">Predictive Maintenance</span>
+        <span class="chip badge slate">Open Source</span>
+        <span class="chip badge slate">Microsoft Stack</span>
+        <span class="chip badge amber">Gartner-listed</span>
       </div>
     </div>
   </header>
@@ -102,7 +105,7 @@
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6" aria-labelledby="filtersTitle">
     <h2 id="filtersTitle" class="sr-only">Filters</h2>
     <div class="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 p-4 md:p-6 dark:bg-slate-800">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <div>
           <label for="search" class="block text-sm font-medium mb-1">Search</label>
           <input id="search" placeholder="Search name, notes…" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 text-sm dark:bg-slate-900 dark:border-slate-700" />
@@ -134,6 +137,17 @@
             <option value="mobile">Mobile-first</option>
             <option value="open">Open Source</option>
             <option value="ms">Microsoft Stack</option>
+            <option value="gartner">Gartner-listed</option>
+          </select>
+        </div>
+        <div>
+          <label for="budget" class="block text-sm font-medium mb-1">Max Budget (Starting)</label>
+          <select id="budget" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 text-sm dark:bg-slate-900 dark:border-slate-700">
+            <option value="any">Any</option>
+            <option value="25">≤ $25 / user / mo</option>
+            <option value="50">≤ $50 / user / mo</option>
+            <option value="100">≤ $100 / user / mo</option>
+            <option value="flat">Flat / Free</option>
           </select>
         </div>
       </div>
@@ -167,16 +181,6 @@
             <option value="formal">Formal</option>
           </select>
         </div>
-        <div>
-          <label for="budget" class="block mb-1">Max Budget (Starting)</label>
-          <select id="budget" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:bg-slate-900 dark:border-slate-700">
-            <option value="any">Any</option>
-            <option value="25">≤ $25 / user / mo</option>
-            <option value="50">≤ $50 / user / mo</option>
-            <option value="100">≤ $100 / user / mo</option>
-            <option value="flat">Flat / Free</option>
-          </select>
-        </div>
         <div class="col-span-2 md:col-span-2 lg:col-span-2">
           <label class="block mb-1">Show Fields</label>
           <div class="flex gap-2 flex-wrap">
@@ -207,6 +211,27 @@
         <span class="chip badge green">Fiix</span>
         <span class="chip badge green">UpKeep</span>
         <span class="chip badge green">Dynamics 365 Asset Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Research: Gartner -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6" aria-labelledby="gartnerTitle">
+    <div class="rounded-2xl bg-sky-50 dark:bg-slate-800/60 ring-1 ring-sky-200 dark:ring-slate-700 p-4 sm:p-5">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div>
+          <h2 id="gartnerTitle" class="text-base md:text-lg font-bold text-slate-800 dark:text-slate-100">Industry Research — Gartner on EAM/APM</h2>
+          <p class="text-slate-600 dark:text-slate-300 text-xs md:text-sm mt-1">
+            Gartner has not published a current Magic Quadrant for <strong>Enterprise Asset Management (EAM)</strong> since 2019. The latest guidance is via <strong>Market Guides</strong> for EAM and APM.
+          </p>
+          <ul class="mt-2 space-y-1 text-xs md:text-sm text-slate-700 dark:text-slate-200 list-disc ml-5">
+            <li><strong>2024 Market Guide for Enterprise Asset Management Software</strong> — overview of EAM vendors & trends. <a class="underline" href="https://www.tmasystems.com/resources/2024-gartner-market-guide-for-enterprise-asset-management-software" target="_blank" rel="noopener noreferrer">Read summary</a></li>
+            <li><strong>2025 Market Guide for Asset Performance Management Software</strong> — complementary APM strategies. <a class="underline" href="https://ips-energy.com/resources/gartner-report/" target="_blank" rel="noopener noreferrer">Read summary</a></li>
+          </ul>
+        </div>
+        <div class="flex gap-2">
+          <button id="openResearch" class="glow rounded-xl px-4 py-2 bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-sm">View key takeaways</button>
+        </div>
       </div>
     </div>
   </section>
@@ -251,6 +276,7 @@
     darkBtn.setAttribute('aria-pressed', String(root.classList.contains('dark')));
 
     const data = [
+      /* Core catalog */
       { name: 'Fiix', website: 'https://www.fiixsoftware.com/', reviews: { g2: 'https://www.g2.com/products/fiix/reviews', capterra: 'https://www.capterra.com/p/74916/Fiix/' }, startingPrice: 45, priceText: '$45 / user / month', notes: 'Predictive maintenance, strong analytics, modern UI.', pt: 'partial', maxAssets: 'No hard limit; plan-dependent performance', estCost: '~$5,400/year (10 users)', easeUser: 5, easeIT: 3, setup: 'medium', integration: 'high', training: 'light', tags: ['predictive','mobile'], recommended: true },
       { name: 'Infraspeak', website: 'https://infraspeak.com/', reviews: { g2: 'https://www.g2.com/products/infraspeak/reviews', capterra: 'https://www.capterra.com/p/155179/Infraspeak/' }, startingPrice: null, priceText: 'Quote only', notes: 'Robust facilities platform, IoT-centric, highly customizable.', pt: 'yes', maxAssets: 'No stated limit', estCost: '~$25k+/year (estimate, 10 users)', easeUser: 4, easeIT: 5, setup: 'hard', integration: 'high', training: 'formal', tags: ['facility','iot'], recommended: false },
       { name: 'UpKeep', website: 'https://www.upkeep.com/', reviews: { g2: 'https://www.g2.com/products/upkeep/reviews', capterra: 'https://www.capterra.com/p/147621/UpKeep/' }, startingPrice: 20, priceText: '$20 / user / month', notes: 'Mobile-first CMMS, great for field teams and quick rollout.', pt: 'partial', maxAssets: 'No official limit; feature limits by tier', estCost: '~$2,400/year (10 users)', easeUser: 5, easeIT: 3, setup: 'easy', integration: 'medium', training: 'none', tags: ['mobile'], recommended: true },
@@ -261,17 +287,32 @@
       { name: 'Snipe-IT', website: 'https://snipeitapp.com/', reviews: { g2: 'https://www.g2.com/products/snipe-it/reviews', capterra: 'https://www.capterra.com/p/145832/Snipe-IT/' }, startingPrice: 0, priceText: 'Free (open source); paid support optional', notes: 'Self-hosted control; developer-friendly.', pt: 'partial', maxAssets: 'Unlimited (server-dependent)', estCost: '$0–3k/year (infra & support)', easeUser: 3, easeIT: 5, setup: 'hard', integration: 'high', training: 'formal', tags: ['open'], recommended: false },
       { name: 'Dynamics 365 Asset Management', website: 'https://dynamics.microsoft.com/', reviews: { g2: 'https://www.g2.com/products/microsoft-dynamics-365-supply-chain-management/reviews', capterra: 'https://www.capterra.com/p/176251/Microsoft-Dynamics-365/' }, startingPrice: null, priceText: 'Quote only (via Microsoft CSP)', notes: 'Deep Microsoft 365/ERP integration; enterprise-grade.', pt: 'yes', maxAssets: 'No asset limit', estCost: '~$4k–15k/year (license dependent)', easeUser: 4, easeIT: 5, setup: 'medium', integration: 'very-high', training: 'formal', tags: ['ms'], recommended: true },
 
-      /* New options aligned to tender */
+      /* Tender-aligned additions */
       { name: 'Asset Panda', website: 'https://www.assetpanda.com/', reviews: { g2: 'https://www.g2.com/products/asset-panda/reviews', capterra: 'https://www.capterra.com/p/144841/Asset-Panda/' }, startingPrice: 15, priceText: 'From $15 / user / month (billed annually)', notes: 'Highly customizable asset platform with QR/barcode scanning and robust reporting.', pt: 'no', maxAssets: 'Unlimited (plan dependent)', estCost: '~$2,700/year (15 users)', easeUser: 4, easeIT: 4, setup: 'medium', integration: 'medium', training: 'formal', tags: ['mobile','inventory'], recommended: false },
       { name: 'Cheqroom', website: 'https://www.cheqroom.com/', reviews: { g2: 'https://www.g2.com/products/cheqroom/reviews', capterra: 'https://www.capterra.com/p/131837/CHEQROOM/' }, startingPrice: 35, priceText: 'From $35 / user / month', notes: 'Great for equipment and inventory control, QR code-ready, mobile-friendly.', pt: 'no', maxAssets: 'Unlimited (plan dependent)', estCost: '~$6,300/year (15 users)', easeUser: 5, easeIT: 3, setup: 'easy', integration: 'medium', training: 'light', tags: ['mobile','inventory'], recommended: false },
-      { name: 'GoCodes', website: 'https://www.gocodes.com/', reviews: { g2: 'https://www.g2.com/products/gocodes/reviews', capterra: 'https://www.capterra.com/p/125651/GoCodes/' }, startingPrice: 500, priceText: 'From $500/year (unlimited users, up to 200 assets)', notes: 'Cloud-based with QR code asset tags included in subscription.', pt: 'no', maxAssets: 'Up to 5000+ with enterprise plans', estCost: '~$2,500/year (5000+ assets)', easeUser: 4, easeIT: 3, setup: 'easy', integration: 'low', training: 'light', tags: ['mobile','budget'], recommended: false }
+      { name: 'GoCodes', website: 'https://www.gocodes.com/', reviews: { g2: 'https://www.g2.com/products/gocodes/reviews', capterra: 'https://www.capterra.com/p/125651/GoCodes/' }, startingPrice: 500, priceText: 'From $500/year (unlimited users, up to 200 assets)', notes: 'Cloud-based with QR code asset tags included in subscription.', pt: 'no', maxAssets: 'Up to 5000+ with enterprise plans', estCost: '~$2,500/year (5000+ assets)', easeUser: 4, easeIT: 3, setup: 'easy', integration: 'low', training: 'light', tags: ['mobile','budget'], recommended: false },
+
+      /* Gartner-listed vendors */
+      { name: 'MaintainX', website: 'https://www.getmaintainx.com/', reviews: { g2: 'https://www.g2.com/products/maintainx/reviews', capterra: 'https://www.capterra.com/p/178830/MaintainX/' }, startingPrice: 10, priceText: 'From ~$10–$25 / user / month', notes: 'Mobile-first work orders & procedures; strong for frontline teams.', pt: 'no', maxAssets: 'Plan-dependent', estCost: '~$1,800–4,500/year (15 users)', easeUser: 5, easeIT: 3, setup: 'easy', integration: 'medium', training: 'light', tags: ['mobile','gartner'], recommended: false },
+      { name: 'IBM Maximo Application Suite', website: 'https://www.ibm.com/products/maximo', reviews: { g2: 'https://www.g2.com/products/ibm-maximo-application-suite/reviews', capterra: 'https://www.capterra.com/p/178567/IBM-Maximo/' }, startingPrice: null, priceText: 'Quote only (perpetual/SaaS options)', notes: 'Enterprise-grade EAM with APM/IoT; strong in O&G, utilities.', pt: 'partial', maxAssets: 'No formal limit', estCost: 'Varies by modules and users', easeUser: 3, easeIT: 5, setup: 'hard', integration: 'very-high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'HxGN EAM (Hexagon)', website: 'https://hexagon.com/products/hxgn-eam', reviews: { g2: 'https://www.g2.com/products/hxgn-eam/reviews', capterra: 'https://www.capterra.com/p/121290/HxGN-EAM-formerly-Infor-EAM/' }, startingPrice: null, priceText: 'Quote only', notes: 'Successor to Infor EAM; asset-intensive industries, compliance.', pt: 'no', maxAssets: 'No formal limit', estCost: 'Quote dependent', easeUser: 4, easeIT: 4, setup: 'medium', integration: 'high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'IFS Cloud (EAM)', website: 'https://www.ifs.com/', reviews: { g2: 'https://www.g2.com/products/ifs-cloud/reviews', capterra: 'https://www.capterra.com/p/134884/IFS-Applications/' }, startingPrice: null, priceText: 'Quote only', notes: 'EAM/ERP/Service in one platform; strong field service + EAM.', pt: 'partial', maxAssets: 'No formal limit', estCost: 'Quote dependent', easeUser: 4, easeIT: 5, setup: 'hard', integration: 'very-high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'IFS Ultimo', website: 'https://www.ultimo.com/', reviews: { g2: 'https://www.g2.com/products/ultimo-eam/reviews', capterra: 'https://www.capterra.com/p/119867/Ultimo-Enterprise-Asset-Management/' }, startingPrice: null, priceText: 'Quote only', notes: 'Mid-enterprise EAM with quick-start options.', pt: 'partial', maxAssets: 'No formal limit', estCost: 'Quote dependent', easeUser: 4, easeIT: 4, setup: 'medium', integration: 'high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'eMaint CMMS (Fluke)', website: 'https://www.emaint.com/', reviews: { g2: 'https://www.g2.com/products/emaint-cmms/reviews', capterra: 'https://www.capterra.com/p/129518/eMaint-CMMS/' }, startingPrice: 69, priceText: 'From ~$69 / user / month', notes: 'CMMS with compliance focus (GxP/GMP).', pt: 'no', maxAssets: 'Plan-dependent', estCost: '~$12,420/year (15 users)', easeUser: 4, easeIT: 4, setup: 'medium', integration: 'high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'Limble CMMS', website: 'https://limblecmms.com/', reviews: { g2: 'https://www.g2.com/products/limble-cmms/reviews', capterra: 'https://www.capterra.com/p/150821/Limble-CMMS/' }, startingPrice: 35, priceText: 'From ~$35 / user / month', notes: 'Popular SMB/mid-market CMMS, fast time-to-value.', pt: 'no', maxAssets: 'Plan-dependent', estCost: '~$6,300/year (15 users)', easeUser: 5, easeIT: 3, setup: 'easy', integration: 'medium', training: 'light', tags: ['mobile','gartner'], recommended: false },
+      { name: 'MVP One', website: 'https://mvpone.com/', reviews: { g2: 'https://www.g2.com/products/mvpone/reviews', capterra: 'https://www.capterra.com/p/223837/MVP-One/' }, startingPrice: 29, priceText: 'From ~$29 / user / month', notes: 'Cloud CMMS/EAM with strong UX and support.', pt: 'no', maxAssets: 'Plan-dependent', estCost: '~$5,220/year (15 users)', easeUser: 5, easeIT: 3, setup: 'easy', integration: 'medium', training: 'light', tags: ['gartner'], recommended: false },
+      { name: 'On Key (Pragma)', website: 'https://www.onkey.com/', reviews: { g2: 'https://www.g2.com/products/on-key-eam/reviews', capterra: 'https://www.capterra.com/p/112077/OnKey-Enterprise-Asset-Management/' }, startingPrice: null, priceText: 'Quote only', notes: 'Africa-strong EAM with services; good regional fit.', pt: 'partial', maxAssets: 'No formal limit', estCost: 'Quote dependent', easeUser: 4, easeIT: 4, setup: 'medium', integration: 'high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'WebTMA', website: 'https://www.tmasystems.com/products/webtma/', reviews: { g2: 'https://www.g2.com/products/webtma/reviews', capterra: 'https://www.capterra.com/p/129305/WebTMA/' }, startingPrice: null, priceText: 'Quote only', notes: 'Facilities/EAM solution with long market tenure.', pt: 'no', maxAssets: 'No formal limit', estCost: 'Quote dependent', easeUser: 4, easeIT: 4, setup: 'medium', integration: 'high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'SAP ERP Suite – EAM', website: 'https://www.sap.com/products/scm/asset-manager.html', reviews: { g2: 'https://www.g2.com/products/sap-eam/reviews', capterra: 'https://www.capterra.com/p/127307/SAP-PM/' }, startingPrice: null, priceText: 'Quote only', notes: 'SAP Plant Maintenance/EAM within SAP ERP; strong enterprise fit.', pt: 'partial', maxAssets: 'No formal limit', estCost: 'Quote dependent', easeUser: 3, easeIT: 5, setup: 'hard', integration: 'very-high', training: 'formal', tags: ['gartner'], recommended: false },
+      { name: 'Fracttal', website: 'https://www.fracttal.com/', reviews: { g2: 'https://www.g2.com/products/fracttal/reviews', capterra: 'https://www.capterra.com/p/133765/Fracttal/' }, startingPrice: 39, priceText: 'From ~$39 / user / month', notes: 'LatAm/EMEA-friendly CMMS with IoT options.', pt: 'yes', maxAssets: 'Plan-dependent', estCost: '~$7,020/year (15 users)', easeUser: 4, easeIT: 3, setup: 'easy', integration: 'medium', training: 'light', tags: ['gartner'], recommended: false }
     ];
 
     const tagMap = {
       recommended: (d) => d.recommended,
       mobile: (d) => d.tags?.includes('mobile'),
       open: (d) => d.tags?.includes('open'),
-      ms: (d) => d.tags?.includes('ms')
+      ms: (d) => d.tags?.includes('ms'),
+      gartner: (d) => d.tags?.includes('gartner')
     };
 
     const icons = {
@@ -300,7 +341,10 @@
           <div class="p-5 flex flex-col h-full">
             <div class="flex items-start justify-between gap-3">
               <h3 class="text-lg font-bold">${d.name}</h3>
-              ${d.recommended ? `<span class="chip badge green">${icons.star} Pick</span>`: ''}
+              <div class="flex gap-2">
+                ${d.recommended ? `<span class="chip badge green">${icons.star} Pick</span>`: ''}
+                ${d.tags?.includes('gartner') ? `<span class="chip badge amber">Gartner</span>` : ''}
+              </div>
             </div>
             <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">${d.notes}</p>
             <div class="mt-3 text-sm font-semibold">${price}</div>
@@ -468,6 +512,19 @@
     $('#closeModal').addEventListener('click', closeModal);
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
 
+    // Research modal handlers
+    const researchModal = document.getElementById('researchModal');
+    const openResearch = document.getElementById('openResearch');
+    const closeResearch = document.getElementById('closeResearch');
+    function toggleResearch(show){
+      researchModal.classList.toggle('hidden', !show);
+      researchModal.classList.toggle('flex', show);
+      if (show) closeResearch.focus();
+    }
+    if (openResearch) openResearch.addEventListener('click', () => toggleResearch(true));
+    if (closeResearch) closeResearch.addEventListener('click', () => toggleResearch(false));
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') toggleResearch(false); });
+
     // Initial render + footer year
     applyFilters();
     $('#year').textContent = new Date().getFullYear();
@@ -481,6 +538,28 @@
         <button id="closeModal" class="glow rounded-full px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600" aria-label="Close dialog">Close</button>
       </div>
       <div id="modalBody" class="mt-4 text-sm space-y-3"></div>
+    </div>
+  </div>
+
+  <!-- Research Modal -->
+  <div id="researchModal" class="fixed inset-0 hidden items-center justify-center bg-black/60 p-4 z-50" role="dialog" aria-modal="true" aria-labelledby="researchTitle">
+    <div class="max-w-2xl w-full rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-2xl">
+      <div class="flex items-start justify-between gap-4">
+        <h3 id="researchTitle" class="text-xl font-bold">Gartner Industry Research — EAM & APM</h3>
+        <button id="closeResearch" class="glow rounded-full px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600" aria-label="Close dialog">Close</button>
+      </div>
+      <div class="mt-4 text-sm space-y-3">
+        <p><strong>No current EAM Magic Quadrant:</strong> The last MQ for Enterprise Asset Management was published in 2019. Gartner now uses <em>Market Guides</em> to cover EAM and related spaces.</p>
+        <ul class="list-disc ml-5 space-y-1">
+          <li><strong>2024 Market Guide for EAM Software:</strong> Emphasizes SaaS adoption, mobile-first UX, QR/RFID tagging, and integration paths to APM/ERP.</li>
+          <li><strong>2025 Market Guide for APM Software:</strong> Highlights predictive analytics, condition monitoring, and the convergence of EAM + APM for asset-intensive industries.</li>
+        </ul>
+        <p class="text-slate-600 dark:text-slate-300">Useful links:</p>
+        <ul class="list-disc ml-5 space-y-1">
+          <li><a class="underline" href="https://www.tmasystems.com/resources/2024-gartner-market-guide-for-enterprise-asset-management-software" target="_blank" rel="noopener noreferrer">2024 Market Guide for EAM — summary</a></li>
+          <li><a class="underline" href="https://ips-energy.com/resources/gartner-report/" target="_blank" rel="noopener noreferrer">2025 Market Guide for APM — summary</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </body>
